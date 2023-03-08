@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html lang = "en">
-  <head>
-    <meta charset = "UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Trip</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-  </head>
-  <body>
-    <header>
-      <h1 class="title is-1">Booking Trip</h1>
-      <div class="container">
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Trip</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <header>
+    <h1 class="title is-1">Booking Trip</h1>
+    <!-- <div class="container">
       <a class="navbar-item">
         Home
       </a>
       <a class="navbar-item" href="favorites.html">
         Favorites
-      </a>
-    </section>
+      </a> -->
+    <div class="tabs is-centered">
+      <ul>
+        <li class="is-active"><a href="#">Home</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+      </ul>
+    </div>
   </header>
   <main>
     <div class="card">
@@ -35,31 +42,35 @@
       <div class="card-content">
         <div class="content">
           <section id="date">
-      
+
             <div class="destination">
               <div class="field">
                 <label class="label">From</label>
                 <div class="control">
-                  <input class="input is-small" type="text"  placeholder="Enter your name" />
+                  <input class="input is-small" type="text" placeholder="Enter your name" />
                 </div>
               </div>
-      
+
               <div class="field">
                 <label class="label">To</label>
                 <div class="control">
-                  <input class="input is-small" type="text"  placeholder="Enter your name" />
+                  <input class="input is-small" type="text" placeholder="Enter your name" />
                 </div>
               </div>
             </div>
-      
-      
-      
+
+
+
             <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
             <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
             <button class="button is-primary">Search</button>
           </section>
           <h2>Flight Details</h2>
-          <a href="#">Book</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+          <footer class="card-footer">
+            <button type="submit" class="button card-footer-item">Favorite</button>
+            <button type="submit" class="button card-footer-item">Book</button>
+
+          </footer>
           <br>
           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
         </div>
@@ -78,19 +89,18 @@
         <div class="card-content">
           <div class="content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-            <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+
             <br>
             <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
           </div>
         </div>
       </div>
       <footer class="card-footer">
-        <a href="#" class="card-footer-item">Favorite</a>
-        <a href="#" class="card-footer-item">Edit</a>
-        <a href="#" class="card-footer-item">Delete</a>
+        <button type="submit" class="button card-footer-item">Favorite</button>
+        <button type="submit" class="button card-footer-item">Book</button>
       </footer>
     </div>
-    
+
   </main>
 </body>
 
