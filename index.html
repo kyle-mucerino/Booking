@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Booking Trip</title>
 </head>
+
 <body>
   <header>
     <h1>Booking Trip</h1>
@@ -15,51 +17,53 @@
       <a class="navbar-item">
         Home
       </a>
-      <a class="navbar-item">
+      <a class="navbar-item" href="favorites.html">
         Favorites
       </a>
     </section>
   </header>
   <main>
-    <section id="date">
-      <h2 class="subtitle has-text-centered">
-        Sign Up Form
-      </h2>
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">From:</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control">
-              <div class="container is-three-fifths">
-                <input class="input " style="width:30%" type="text" placeholder="Normal input">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Search Flight
+        </p>
+        <button class="card-header-icon" aria-label="more options">
+          <span class="icon">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <section id="date">
+      
+            <div class="destination">
+              <div class="field">
+                <label class="label">From</label>
+                <div class="control">
+                  <input class="input is-small" type="text"  placeholder="Enter your name" />
+                </div>
               </div>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">To:</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control">
-            <div class="container is-three-fifths">
-              <input class="input " style="width:30%" type="text" placeholder="Normal input">
+      
+              <div class="field">
+                <label class="label">To</label>
+                <div class="control">
+                  <input class="input is-small" type="text"  placeholder="Enter your name" />
+                </div>
+              </div>
             </div>
             </p>
           </div>
         </div>
       </div>
-      <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
-      <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
-
-      <div class="box">
-        From:
-      </div>
-    </section>
+      <footer class="card-footer">
+        <a href="#" class="card-footer-item">Favorite</a>
+        <a href="#" class="card-footer-item">Edit</a>
+        <a href="#" class="card-footer-item">Delete</a>
+      </footer>
+    </div>
   </main>
 </body>
+
 </html>
