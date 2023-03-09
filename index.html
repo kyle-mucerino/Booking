@@ -5,47 +5,102 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Trip</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Booking Trip</title>
 </head>
 
 <body>
   <header>
-    <h1>Booking Trip</h1>
-    <section>
+    <h1 class="banner title is-1">Booking Trip</h1>
+    <!-- <div class="container">
       <a class="navbar-item">
         Home
       </a>
-      <a class="navbar-item">
+      <a class="navbar-item" href="favorites.html">
         Favorites
-      </a>
-    </section>
+      </a> -->
+    <div class="tabs is-centered">
+      <ul>
+        <li class="is-active"><a href="#">Home</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+      </ul>
+    </div>
   </header>
   <main>
-    <section id="date">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Search Flight
+        </p>
+        <button class="card-header-icon" aria-label="more options">
+          <span class="icon">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <section id="date">
 
-      <div class="destination">
-        <div class="field">
-          <label class="label">From</label>
-          <div class="control">
-            <input class="input is-small" type="text"  placeholder="Enter your name" />
-          </div>
+            <div class="destination">
+              <div class="field">
+                <label class="label">From</label>
+                <div class="control">
+                  <input class="input is-small" type="text" placeholder="Enter your name" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">To</label>
+                <div class="control">
+                  <input class="input is-small" type="text" placeholder="Enter your name" />
+                </div>
+              </div>
+            </div>
+
+
+
+            <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
+            <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
+            <button class="button is-primary">Search</button>
+          </section>
+          <h2>Flight Details</h2>
+          <footer class="card-footer">
+            <button type="submit" class="button card-footer-item">Favorite</button>
+            <button type="submit" class="button card-footer-item">Book</button>
+
+          </footer>
+          <br>
+          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
         </div>
+      </div>
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Hotels
+          </p>
+          <button class="card-header-icon" aria-label="more options">
+            <span class="icon">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
 
-        <div class="field">
-          <label class="label">To</label>
-          <div class="control">
-            <input class="input is-small" type="text"  placeholder="Enter your name" />
+            <br>
+            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
           </div>
         </div>
       </div>
+      <footer class="card-footer">
+        <button type="submit" class="button card-footer-item">Favorite</button>
+        <button type="submit" class="button card-footer-item">Book</button>
+      </footer>
+    </div>
 
-
-
-      <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
-      <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
-    </section>
   </main>
 </body>
 
