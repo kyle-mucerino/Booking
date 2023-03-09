@@ -27,58 +27,16 @@
       </ul>
     </div>
   </header>
+
+
+
   <main>
-    <div class="card">
-      <header class="card-header">
-        <p class="card-header-title">
-          Search Flight
-        </p>
-        <button class="card-header-icon" aria-label="more options">
-          <span class="icon">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-        </button>
-      </header>
-      <div class="card-content">
-        <div class="content">
-          <section id="date">
+    <div class="container">
 
-            <div class="destination">
-              <div class="field">
-                <label class="label">From</label>
-                <div class="control">
-                  <input class="input is-small" type="text" placeholder="Enter your name" />
-                </div>
-              </div>
-
-              <div class="field">
-                <label class="label">To</label>
-                <div class="control">
-                  <input class="input is-small" type="text" placeholder="Enter your name" />
-                </div>
-              </div>
-            </div>
-
-
-
-            <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
-            <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
-            <button class="button is-primary">Search</button>
-          </section>
-          <h2>Flight Details</h2>
-          <footer class="card-footer">
-            <button type="submit" class="button card-footer-item">Favorite</button>
-            <button type="submit" class="button card-footer-item">Book</button>
-
-          </footer>
-          <br>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-        </div>
-      </div>
-      <div class="card">
+      <div class="searchFlight mb-4">
         <header class="card-header">
           <p class="card-header-title">
-            Hotels
+            Search Flight
           </p>
           <button class="card-header-icon" aria-label="more options">
             <span class="icon">
@@ -88,18 +46,108 @@
         </header>
         <div class="card-content">
           <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+            <section id="date">
+              <div class="destination">
+                <div class="field">
+                  <label class="label">From</label>
+                  <div class="control">
+                    <input class="input is-small" type="text" placeholder="Enter your name" />
+                  </div>
+                </div>
 
-            <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <div class="field">
+                  <label class="label">To</label>
+                  <div class="control">
+                    <input class="input is-small" type="text" placeholder="Enter your name" />
+                  </div>
+                </div>
+              </div>
+
+              <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
+              <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
+              <button class="button is-primary">Search</button>
+            </section>
           </div>
         </div>
       </div>
-      <footer class="card-footer">
-        <button type="submit" class="button card-footer-item">Favorite</button>
-        <button type="submit" class="button card-footer-item">Book</button>
-      </footer>
+
+
+
+
+
+      <div id="flightDetails mb-6">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              Flight Details
+            </p>
+            <button class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+
+              <br>
+              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            </div>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <button type="submit" class="button card-footer-item">Favorite</button>
+          <button type="submit" class="button card-footer-item">Book</button>
+        </footer>
+      </div>
+
+
+
+      <!-- <h2>Flight Details</h2>
+            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            <footer class="card-footer">
+              <button type="submit" class="button card-footer-item">Favorite</button>
+              <button type="submit" class="button card-footer-item">Book</button>
+            </footer>
+            <br> -->
+
+
+      <div class="hotelsInfo">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              Hotels
+            </p>
+            <button class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+
+              <br>
+              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            </div>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <button type="submit" class="button card-footer-item">Favorite</button>
+          <button type="submit" class="button card-footer-item">Book</button>
+        </footer>
+      </div>
+
+
+
     </div>
+
+
+
+
+
 
   </main>
 </body>
