@@ -29,8 +29,13 @@ p {
   background-color: whitesmoke;
 }
 
-h1{
+#title{
   display: flex;
   justify-content: right;
   align-items: flex-end;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: bolder;
 }
