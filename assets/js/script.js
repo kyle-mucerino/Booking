@@ -27,7 +27,7 @@ document.getElementById("searchBtn").addEventListener("click", function () {
         .then(function (data) {
           console.log(data);
 
-          // Display weather and time in the HTML
+          // Display the weather and time in the HTML
           displayWeather(data);
         });
     })
@@ -35,8 +35,8 @@ document.getElementById("searchBtn").addEventListener("click", function () {
       console.error(err);
     });
 
-  //Fetch the Spotify API
 
+  //Fetch the Spotify API
   const endpoint = "https://accounts.spotify.com/api/token";
 
   const clientID = "a8d159dd2df64dd88997760953407b51";
@@ -80,12 +80,14 @@ function displayWeather(data) {
   //To clear the previous display
   document.getElementById("weatherCard").innerHTML = " ";
 
+  //Declare the variables
   var city = data.name;
   var date = new Date();
   var todaysDate = date.toLocaleDateString();
   var icon = data.weather[0].icon;
   var temp = data.main.temp;
 
+ //Creating div for the weather display
   var weather = document.createElement("div");
 
   weather.innerHTML = ` 
