@@ -28,3 +28,9 @@ p {
 .card-content {
   background-color: whitesmoke;
 }
+
+h1{
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+}
