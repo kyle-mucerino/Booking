@@ -68,12 +68,21 @@ document.getElementById("searchBtn").addEventListener("click", function () {
       })
         .then((response) => response.json())
         .then((data) => {
-          const genres = data.categories.items.map((category) => category.name);
+          const genres = data.categories.items .map((category) => category.name);
+
           console.log(genres);
         })
         .catch((error) => console.error(error));
+
     })
     .catch((error) => console.error(error));
+
+    
+
+
+
+
+
 });
 
 function displayWeather(data) {
