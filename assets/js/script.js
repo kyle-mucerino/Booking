@@ -85,13 +85,14 @@ function displayWeather(data) {
   var todaysDate = date.toLocaleDateString();
   var icon = data.weather[0].icon;
   var temp = data.main.temp;
-
+  var currentTime = dayjs().format("HH:mm");
   var weather = document.createElement("div");
 
   weather.innerHTML = ` 
   <div class="content has-text-centered">
     <h5 class="title is-size4">${city}</h5>
               <div>${todaysDate}</div>
+              <p id='time'>${currentTime}</p>
               <img src="https://openweathermap.org/img/w/${icon}.png" alt="Weather Icon">
               <p id="temperature" class="card-text">The temperature : ${temp} °F
               </p>
