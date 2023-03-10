@@ -1,17 +1,23 @@
-var genreList = [{
-  clearSkyDay: ['summer', 'pop', 'dace/electronic', 'workout', 'regional mexican']
-},
-{
-  rainnyDay : ['mood', 'netflix', 'idie', 'sleep', 'gaming']
-},
-{
-  snow : ['top lists', 'latin', 'wellness', 'equal', 'chill']
-},
-{
-  mist : ['rock', 'country', 'r&b', 'Christian & Gospel', 'hip-hop']
-}]
-
-
+var genreList = [
+  {
+    clearSkyDay: [
+      "summer",
+      "pop",
+      "dace/electronic",
+      "workout",
+      "regional mexican",
+    ],
+  },
+  {
+    rainnyDay: ["mood", "netflix", "idie", "sleep", "gaming"],
+  },
+  {
+    snow: ["top lists", "latin", "wellness", "equal", "chill"],
+  },
+  {
+    mist: ["rock", "country", "r&b", "Christian & Gospel", "hip-hop"],
+  },
+];
 
 document.getElementById("searchBtn").addEventListener("click", function () {
   var cityName = document.getElementById("cityName").value;
@@ -87,27 +93,23 @@ document.getElementById("searchBtn").addEventListener("click", function () {
         .then((data) => {
           const genres = data.categories.items;
 
-          // .map((category) => category.name)
+          //.map((category) => category.name)
           console.log(genres);
+
           //loop through to pick a random genre, need to link with weather
           let pickedGenre = "";
           for (let i = 0; i < genres.length; i++) {
-            const genre = genres[i];
+            const genre = genres[i].name;
             console.log("Genre #" + (i + 1) + ": " + genre);
 
-            if (genre === "Rock") {
-              pickedGenre = genre;
-              console.log("Picked genre: " + pickedGenre);
-              break;
-            }
+
+
           }
           //creating p for genre
           const pickedGenreElement = document.createElement("p");
           pickedGenreElement.innerHTML = "Picked genre: " + pickedGenre;
           document.body.appendChild(pickedGenreElement);
-          document
-            .getElementById("#spotifyPlaylist")
-            .append(pickedGenreElement);
+          document.getElementById("spotifyPlaylist").append(pickedGenreElement);
         })
         .catch((error) => console.error(error));
     })
@@ -160,21 +162,27 @@ function displayWeather(data) {
   }
 }
 
+// //Trizzie's work starts from here
+// var playlist_id = genres[0].id;
+// console.log(playlist_id);
+// const endpoint = `https://api.spotify.com/v1/playlists/${playlist_id}`;
+
+// fetch(endpoint, {
+//   headers: {
+//     Authorization: "Bearer " + data.access_token,
+//   },
+// })
+//   .then((response) => response.json())
+//   .then((data) => {
+//     const playlist = data.items;
+//     console.log(playlist);
+//   });
+//
 
 
-
-          // //Trizzie's work starts from here
-          // var playlist_id = genres[0].id;
-          // console.log(playlist_id);
-          // const endpoint = `https://api.spotify.com/v1/playlists/${playlist_id}`;
-
-          // fetch(endpoint, {
-          //   headers: {
-          //     Authorization: "Bearer " + data.access_token,
-          //   },
-          // })
-          //   .then((response) => response.json())
-          //   .then((data) => {
-          //     const playlist = data.items;
-          //     console.log(playlist);
-          //   });
+//Kyle's code block
+            // if (genre === "Rock") {
+            //   pickedGenre = genre;
+            //   console.log("Picked genre: " + pickedGenre);
+            //   break;
+            // }
