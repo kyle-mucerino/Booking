@@ -102,6 +102,9 @@ function displayWeather(data) {
 
   document.getElementById("weatherCard").append(weather);
 
+
+
+
   //Arrays for the weather icons
   var clearSkyDay = ["01d", "02d", "03d", "04d"];
   var rainnyDay = ["09d", "10d", "11d"];
@@ -111,8 +114,14 @@ function displayWeather(data) {
   var rainnyNight = ["09n", "10n", "11n"];
 
   for (var i = 0; i < 4; i++) {
-    if (clearSkyNight[i] === icon) {
-      console.log("Confirm");
-    }
+    if (clearSkyDay[i] === icon) {
+      console.log("Confirm clear day");
+    }else if(clearSkyNight[i] === icon){
+      console.log("Confirm Clear Night ");
+    }else if(rainnyDay[i] === icon){
+      console.log("Confirm rainny night");
+    };
   }
+
+  
 }
