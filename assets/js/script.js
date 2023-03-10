@@ -14,6 +14,44 @@ document.getElementById("searchBtn").addEventListener("click", function () {
     .then((response) => console.log(response))
     .catch((err) => console.error(err));
 
+  const endpoint = "https://accounts.spotify.com/api/token";
+
+  const clientID = "a8d159dd2df64dd88997760953407b51";
+  const clientSecret = "4b6c7ca3bb03493bb22fc9026549ca97";
+
+  const authHeader = btoa(`${clientID}:${clientSecret}`);
+
+  const data = new URLSearchParams();
+  data.append("grant_type", "client_credentials");
+
+  fetch(endpoint, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${authHeader}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.access_token);
+      // Use the access token to fetch the list of available genres
+      const endpoint = "https://api.spotify.com/v1/browse/categories";
+
+      fetch(endpoint, {
+        headers: {
+          Authorization: "Bearer " + data.access_token,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const genres = data.categories.items.map((category) => category.name);
+          console.log(genres);
+        })
+        .catch((error) => console.error(error));
+    })
+    .catch((error) => console.error(error));
+
   // const options = {
   //   method: "GET",
   //   headers: {
