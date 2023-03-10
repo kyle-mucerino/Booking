@@ -27,7 +27,7 @@ document.getElementById("searchBtn").addEventListener("click", function () {
         .then(function (data) {
           console.log(data);
 
-          // Display weather and time in the HTML
+          // Display the weather and time in the HTML
           displayWeather(data);
         });
     })
@@ -36,7 +36,6 @@ document.getElementById("searchBtn").addEventListener("click", function () {
     });
 
   //Fetch the Spotify API
-
   const endpoint = "https://accounts.spotify.com/api/token";
 
   const clientID = "a8d159dd2df64dd88997760953407b51";
@@ -69,7 +68,26 @@ document.getElementById("searchBtn").addEventListener("click", function () {
         .then((response) => response.json())
         .then((data) => {
           const genres = data.categories.items.map((category) => category.name);
+
           console.log(genres);
+
+          //loop through to pick a random genre, need to link with weather
+          let pickedGenre = "";
+          for (let i = 0; i < genres.length; i++) {
+            const genre = genres[i];
+            console.log("Genre #" + (i + 1) + ": " + genre);
+
+            if (genre === "Rock") {
+              pickedGenre = genre;
+              console.log("Picked genre: " + pickedGenre);
+              break;
+            }
+          }
+          //creating p for genre
+          const pickedGenreElement = document.createElement("p");
+          pickedGenreElement.innerHTML = "Picked genre: " + pickedGenre;
+          document.body.appendChild(pickedGenreElement);
+          document.getElementById("#spotifyPlaylist").append(pickedGenreElement);
         })
         .catch((error) => console.error(error));
     })
@@ -80,12 +98,15 @@ function displayWeather(data) {
   //To clear the previous display
   document.getElementById("weatherCard").innerHTML = " ";
 
+  //Declare the variables
   var city = data.name;
   var date = new Date();
   var todaysDate = date.toLocaleDateString();
   var icon = data.weather[0].icon;
   var temp = data.main.temp;
   var currentTime = dayjs().format("HH:mm");
+
+  //Creating div for the weather display
   var weather = document.createElement("div");
 
   weather.innerHTML = ` 
@@ -100,4 +121,22 @@ function displayWeather(data) {
   `;
 
   document.getElementById("weatherCard").append(weather);
+
+  //Arrays for the weather icons
+  var clearSkyDay = ["01d", "02d", "03d", "04d"];
+  var rainnyDay = ["09d", "10d", "11d"];
+  var snow = ["13d", "13n"];
+  var mist = ["50d", "50n"];
+  var clearSkyNight = ["01n", "02n", "03n", "04n"];
+  var rainnyNight = ["09n", "10n", "11n"];
+
+  for (var i = 0; i < 4; i++) {
+    if (clearSkyDay[i] === icon) {
+      console.log("Confirm clear day");
+    } else if (clearSkyNight[i] === icon) {
+      console.log("Confirm Clear Night ");
+    } else if (rainnyDay[i] === icon) {
+      console.log("Confirm rainny night");
+    }
+  }
 }
