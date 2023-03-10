@@ -1,6 +1,9 @@
 document.getElementById("searchBtn").addEventListener("click", function () {
   var cityName = document.getElementById("cityName").value;
 
+  //Clear the previous search value
+  document.getElementById("cityName").value = "";
+
   // get data from the API Weather
   var APIKey = "a68815855e046aa6fc830d61874f7c39";
   var APIUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${APIKey}`;
@@ -74,7 +77,6 @@ document.getElementById("searchBtn").addEventListener("click", function () {
 });
 
 function displayWeather(data) {
-  
   //To clear the previous display
   document.getElementById("weatherCard").innerHTML = " ";
 
