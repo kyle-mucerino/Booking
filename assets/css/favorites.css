@@ -1,7 +1,32 @@
+* {
+    font-family: 'Barlow', sans-serif;
+font-family: 'Barlow Condensed', sans-serif;
+font-family: 'Rajdhani', sans-serif;
+}
+
 .banner {
   
   background-image: url('https://nl.devoteam.com/wp-content/uploads/sites/13/2021/05/oneAPI_Waveforms_Color-IDZ.jpg');
   background-position: bottom;
   
   height: 400px;
+  color: white;
+}
+
+button:hover {
+  background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
+}
+
+p {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+.card-content {
+  background-color: whitesmoke;
+}
+
+h1{
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
 }
