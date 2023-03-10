@@ -38,13 +38,16 @@ document.getElementById("searchBtn").addEventListener("click", function () {
   //Fetch the Spotify API
   const endpoint = "https://accounts.spotify.com/api/token";
 
-  const clientID = "a8d159dd2df64dd88997760953407b51";
-  const clientSecret = "4b6c7ca3bb03493bb22fc9026549ca97";
+  const clientID = "e7fc5b273d9b4aaea1f387e99ef23d1b";
+  const clientSecret = "b22ba202fa564908a0a1e50e928b6db2";
 
   const authHeader = btoa(`${clientID}:${clientSecret}`);
 
   const data = new URLSearchParams();
   data.append("grant_type", "client_credentials");
+
+  var access_token =
+    "BQAogx5eshE7bZxqsGoU08aTlnSi9Jyk8idM_5HSMI1YXodkDdz4t-Qx37jhXCo_V-66OGjyYkm-fu9zW2O-V-5GxgvtHGxIYS82wu7JGB-8mz3jOwIeZGZ6IGigdWL6c0fZQoMDbRuPJ-2m4dlfk4UQDoLFlruepQfPcHj34QrtPdBvFCcqKdDmzDhW";
 
   fetch(endpoint, {
     method: "POST",
@@ -67,9 +70,26 @@ document.getElementById("searchBtn").addEventListener("click", function () {
       })
         .then((response) => response.json())
         .then((data) => {
-          const genres = data.categories.items.map((category) => category.name);
+          const genres = data.categories.items;
 
+          // .map((category) => category.name)
           console.log(genres);
+
+          //Trizzie's work starts from here
+          var playlist_id = genres[0].id;
+          console.log(playlist_id);
+          const endpoint = `https://api.spotify.com/v1/playlists/${playlist_id}`;
+
+          fetch(endpoint, {
+            headers: {
+              Authorization: "Bearer " + data.access_token,
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const playlist = data.items;
+              console.log(playlist);
+            });
         })
         .catch((error) => console.error(error));
     })
@@ -102,7 +122,6 @@ function displayWeather(data) {
 
   document.getElementById("weatherCard").append(weather);
 
-  
   //Arrays for the weather icons
   var clearSkyDay = ["01d", "02d", "03d", "04d"];
   var rainnyDay = ["09d", "10d", "11d"];
