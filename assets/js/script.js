@@ -1,3 +1,18 @@
+var genreList = [{
+  clearSkyDay: ['summer', 'pop', 'dace/electronic', 'workout', 'regional mexican']
+},
+{
+  rainnyDay : ['mood', 'netflix', 'idie', 'sleep', 'gaming']
+},
+{
+  snow : ['top lists', 'latin', 'wellness', 'equal', 'chill']
+},
+{
+  mist : ['rock', 'country', 'r&b', 'Christian & Gospel', 'hip-hop']
+}]
+
+
+
 document.getElementById("searchBtn").addEventListener("click", function () {
   var cityName = document.getElementById("cityName").value;
 
