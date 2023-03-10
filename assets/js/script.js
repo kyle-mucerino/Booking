@@ -70,6 +70,24 @@ document.getElementById("searchBtn").addEventListener("click", function () {
           const genres = data.categories.items.map((category) => category.name);
 
           console.log(genres);
+
+          //loop through to pick a random genre, need to link with weather
+          let pickedGenre = "";
+          for (let i = 0; i < genres.length; i++) {
+            const genre = genres[i];
+            console.log("Genre #" + (i + 1) + ": " + genre);
+
+            if (genre === "Rock") {
+              pickedGenre = genre;
+              console.log("Picked genre: " + pickedGenre);
+              break;
+            }
+          }
+          //creating p for genre
+          const pickedGenreElement = document.createElement("p");
+          pickedGenreElement.innerHTML = "Picked genre: " + pickedGenre;
+          document.body.appendChild(pickedGenreElement);
+          document.getElementById("#spotifyPlaylist").append(pickedGenreElement);
         })
         .catch((error) => console.error(error));
     })
@@ -102,7 +120,6 @@ function displayWeather(data) {
 
   document.getElementById("weatherCard").append(weather);
 
-  
   //Arrays for the weather icons
   var clearSkyDay = ["01d", "02d", "03d", "04d"];
   var rainnyDay = ["09d", "10d", "11d"];
