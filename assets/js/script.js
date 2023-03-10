@@ -120,6 +120,10 @@ function displayWeather(data) {
   var icon = data.weather[0].icon;
   var temp = data.main.temp;
   var currentTime = dayjs().format("HH:mm");
+<<<<<<< HEAD
+
+=======
+>>>>>>> 33f66e47f2d3221c3029ede60adab64b926141c2
   //Creating div for the weather display
   var weather = document.createElement("div");
 
