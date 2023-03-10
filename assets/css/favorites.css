@@ -1,5 +1,5 @@
 * {
-    font-family: 'Barlow', sans-serif;
+  font-family: 'Barlow', sans-serif;
 font-family: 'Barlow Condensed', sans-serif;
 font-family: 'Rajdhani', sans-serif;
 }
@@ -11,6 +11,22 @@ font-family: 'Rajdhani', sans-serif;
   
   height: 400px;
   color: white;
+}
+
+.citySearch {
+display:flex;
+}
+
+button:hover {
+background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+}
+
+p {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+.card-content {
+  background-color: whitesmoke;
 }
 
 h1{
