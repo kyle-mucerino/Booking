@@ -74,6 +74,10 @@ document.getElementById("searchBtn").addEventListener("click", function () {
 });
 
 function displayWeather(data) {
+  
+  //To clear the previous display
+  document.getElementById("weatherCard").innerHTML = " ";
+
   var city = data.name;
   var date = new Date();
   var todaysDate = date.toLocaleDateString();
@@ -81,6 +85,7 @@ function displayWeather(data) {
   var temp = data.main.temp;
 
   var weather = document.createElement("div");
+
   weather.innerHTML = ` 
   <div class="content has-text-centered">
     <h5 class="title is-size4">${city}</h5>
