@@ -1,25 +1,38 @@
 document.getElementById("searchBtn").addEventListener("click", function () {
   var cityName = document.getElementById("cityName").value;
-  // var city_name2 = document.getElementById("to").value;
-  fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=529a4a77591cd797917d95ed3b0a882f`
-  )
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
 
-  // const options = {
-  //   method: "GET",
-  //   headers: {
-  //     "X-RapidAPI-Key": "ef5b343e8amsh245f6290f2a4531p1a9e15jsn4eb38a0919dc",
-  //     "X-RapidAPI-Host": "flixbus.p.rapidapi.com",
-  //   },
-  // };
+  // get data from the API Weather
+  var APIKey = "a68815855e046aa6fc830d61874f7c39";
+  var APIUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${APIKey}`;
 
-  // fetch("https://flixbus.p.rapidapi.com/v1/cities", options)
-  //   .then((response) => response.json())
-  //   .then((response) => console.log(response))
-  //   .catch((err) => console.error(err));
+  fetch(APIUrl)
+    .then(function (res) {
+      return res.json();
+    })
+
+    .then(function (data) {
+      console.log(data);
+      var lat = data.city.coord.lat;
+      var lon = data.city.coord.lon;
+
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`
+      )
+        .then(function (resp) {
+          return resp.json();
+        })
+        .then(function (data) {
+          console.log(data);
+
+          // Display weather and time in the HTML
+          displayWeather(data);
+        });
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+
+  //Fetch the Spotify API
 
   const endpoint = "https://accounts.spotify.com/api/token";
 
@@ -58,23 +71,25 @@ document.getElementById("searchBtn").addEventListener("click", function () {
         .catch((error) => console.error(error));
     })
     .catch((error) => console.error(error));
-
-  // const options = {
-  //   method: "GET",
-  //   headers: {
-  //     "X-RapidAPI-Key": "ef5b343e8amsh245f6290f2a4531p1a9e15jsn4eb38a0919dc",
-  //     "X-RapidAPI-Host": "flixbus.p.rapidapi.com",
-  //   },
-  // };
-
-  // var city_name = document.getElementById("from").value;
-  // var city_name2 = document.getElementById("to").value;
-
-  // fetch(
-  //   `https://flixbus.p.rapidapi.com/v1/search-trips?to_id=${city_name}&from_id=${city_name2}&currency=USD&departure_date=2023-03-26&number_adult=1&search_by=cities`,
-  //   options
-  // )
-  //   .then((response) => response.json())
-  //   .then((response) => console.log(response))
-  //   .catch((err) => console.error(err));
 });
+
+function displayWeather(data) {
+  var city = data.name;
+  var date = new Date();
+  var todaysDate = date.toLocaleDateString();
+  var icon = data.weather[0].icon;
+  var temp = data.main.temp;
+
+  var weather = document.createElement("div");
+  weather.innerHTML = ` 
+  <div class="content has-text-centered">
+    <h5 class="title is-size4">${city}</h5>
+              <div>${todaysDate}</div>
+              <img src="https://openweathermap.org/img/w/${icon}.png" alt="Weather Icon">
+              <p id="temperature" class="card-text">The temperature : ${temp} °F
+              </p>
+            </div>
+  `;
+
+  document.getElementById("weatherCard").append(weather);
+}
