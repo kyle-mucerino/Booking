@@ -6,6 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Music Choice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Rajdhani:wght@500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -38,20 +43,20 @@
           <p class="card-header-title">
             Search City
           </p>
-          <button class="card-header-icon" aria-label="more options">
-            <span class="icon">
+          <!-- <button class="card-header-icon" aria-label="more options"> -->
+            <!-- <span class="icon">
               <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </button>
+            </span> -->
+          <!-- </button> -->
         </header>
         <div class="card-content">
           <div class="content">
             <section id="date">
-              <div class="destination">
+              <div class="citySearch">
                 <div class="field">
                   <!-- <label class="label">From</label> -->
                   <div class="control">
-                    <input id="cityName" class="input is-small" type="text" placeholder="Enter City" />
+                    <input id="cityName" class="input is-normal" type="text" placeholder="Enter City" />
                   </div>
                 </div>
 
@@ -75,17 +80,17 @@
 
 
 
-      <div id="flightDetails mb-6">
+      <div id="weatherDetails mb-6">
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
               Current Weather
             </p>
-            <button class="card-header-icon" aria-label="more options">
+            <!-- <button class="card-header-icon" aria-label="more options">
               <span class="icon">
                 <i class="fas fa-angle-down" aria-hidden="true"></i>
               </span>
-            </button>
+            </button> -->
           </header>
           <div id="weatherCard" class="card-content">
           </div>
@@ -107,17 +112,17 @@
 
 
 
-      <div class="hotelsInfo">
+      <div class="playlistInfo">
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
               Your Spotify Playlist
             </p>
-            <button class="card-header-icon" aria-label="more options">
+            <!-- <button class="card-header-icon" aria-label="more options">
               <span class="icon">
                 <i class="fas fa-angle-down" aria-hidden="true"></i>
               </span>
-            </button>
+            </button> -->
           </header>
           <div class="card-content">
             <div id = "spotifyPlaylist" class="content">
