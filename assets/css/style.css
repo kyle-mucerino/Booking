@@ -46,3 +46,13 @@ h1{
    font-size: 80px;
   font-weight: bolder;
 }
+
+#spotifyPlaylist{
+  display: flex;
+  
+}
+
+.cardMusic {
+  margin: 10px;
+  width: 300px ;
+}
