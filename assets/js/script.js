@@ -228,6 +228,7 @@ document.addEventListener("click", function (event) {
     event.target.classList.remove("is-primary");
     event.target.classList.add("is-info");
     event.target.textContent = "Favorited";
+    event.target.disabled = true;
   }
 });
 
