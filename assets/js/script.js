@@ -1,23 +1,4 @@
-var genreList = [
-  {
-    clearSkyDay: [
-      "summer",
-      "pop",
-      "dace/electronic",
-      "workout",
-      "regional mexican",
-    ],
-  },
-  {
-    rainnyDay: ["mood", "netflix", "idie", "sleep", "gaming"],
-  },
-  {
-    snow: ["top lists", "latin", "wellness", "equal", "chill"],
-  },
-  {
-    mist: ["rock", "country", "r&b", "Christian & Gospel", "hip-hop"],
-  },
-];
+// console.log(genreList[0]);
 
 document.getElementById("searchBtn").addEventListener("click", function () {
   var cityName = document.getElementById("cityName").value;
@@ -55,65 +36,6 @@ document.getElementById("searchBtn").addEventListener("click", function () {
     .catch(function (err) {
       console.error(err);
     });
-
-  //Fetch the Spotify API
-  const endpoint = "https://accounts.spotify.com/api/token";
-
-  const clientID = "e7fc5b273d9b4aaea1f387e99ef23d1b";
-  const clientSecret = "b22ba202fa564908a0a1e50e928b6db2";
-
-  const authHeader = btoa(`${clientID}:${clientSecret}`);
-
-  const data = new URLSearchParams();
-  data.append("grant_type", "client_credentials");
-
-  var access_token =
-    "BQAogx5eshE7bZxqsGoU08aTlnSi9Jyk8idM_5HSMI1YXodkDdz4t-Qx37jhXCo_V-66OGjyYkm-fu9zW2O-V-5GxgvtHGxIYS82wu7JGB-8mz3jOwIeZGZ6IGigdWL6c0fZQoMDbRuPJ-2m4dlfk4UQDoLFlruepQfPcHj34QrtPdBvFCcqKdDmzDhW";
-
-  fetch(endpoint, {
-    method: "POST",
-    headers: {
-      Authorization: `Basic ${authHeader}`,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: data,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data.access_token);
-      // Use the access token to fetch the list of available genres
-      const endpoint = "https://api.spotify.com/v1/browse/categories";
-
-      fetch(endpoint, {
-        headers: {
-          Authorization: "Bearer " + data.access_token,
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          const genres = data.categories.items;
-
-          //.map((category) => category.name)
-          console.log(genres);
-
-          //loop through to pick a random genre, need to link with weather
-          let pickedGenre = "";
-          for (let i = 0; i < genres.length; i++) {
-            const genre = genres[i].name;
-            console.log("Genre #" + (i + 1) + ": " + genre);
-
-
-
-          }
-          //creating p for genre
-          const pickedGenreElement = document.createElement("p");
-          pickedGenreElement.innerHTML = "Picked genre: " + pickedGenre;
-          document.body.appendChild(pickedGenreElement);
-          document.getElementById("spotifyPlaylist").append(pickedGenreElement);
-        })
-        .catch((error) => console.error(error));
-    })
-    .catch((error) => console.error(error));
 });
 
 function displayWeather(data) {
@@ -143,46 +65,153 @@ function displayWeather(data) {
 
   document.getElementById("weatherCard").append(weather);
 
+  yourPlaylists(icon);
+}
+
+function yourPlaylists(icon) {
+  spotifyAPI();
+
   //Arrays for the weather icons
   var clearSkyDay = ["01d", "02d", "03d", "04d"];
-  var rainnyDay = ["09d", "10d", "11d"];
+  var clearSkyNight = ["01n", "02n", "03n", "04n"];
+  var rainyDay = ["09d", "10d", "11d"];
+  var rainyNight = ["09n", "10n", "11n"];
   var snow = ["13d", "13n"];
   var mist = ["50d", "50n"];
-  var clearSkyNight = ["01n", "02n", "03n", "04n"];
-  var rainnyNight = ["09n", "10n", "11n"];
 
   for (var i = 0; i < 4; i++) {
     if (clearSkyDay[i] === icon) {
-      console.log("Confirm clear day");
+      // var suggestionLists = genreList[0];
+      console.log("confirm Clear Day");
     } else if (clearSkyNight[i] === icon) {
+      // var suggestionLists = genreList[0];
       console.log("Confirm Clear Night ");
-    } else if (rainnyDay[i] === icon) {
-      console.log("Confirm rainny night");
+    }
+  }
+
+  for (var i = 0; i < 3; i++) {
+    if (rainyNight[i] === icon) {
+      // var suggestionLists = genreList[0];
+      console.log("confirm rainy night");
+    } else if (rainyDay[i] === icon) {
+      // var suggestionLists = genreList[1];
+      // console.log(suggestionLists);
+      console.log("Confirm rainy day");
+    }
+  }
+
+  for (var i = 0; i < 2; i++) {
+    if (snow[i] === icon) {
+      // var suggestionLists = genreList[0];
+      console.log("confirm snowy");
+    } else if (mist[i] === icon) {
+      // var suggestionLists = genreList[1];
+      // console.log(suggestionLists);
+      console.log("Confirm mist day");
     }
   }
 }
 
-// //Trizzie's work starts from here
-// var playlist_id = genres[0].id;
-// console.log(playlist_id);
-// const endpoint = `https://api.spotify.com/v1/playlists/${playlist_id}`;
+function spotifyAPI() {
+  //Fetch the Spotify API
+  const endpoint = "https://accounts.spotify.com/api/token";
 
-// fetch(endpoint, {
-//   headers: {
-//     Authorization: "Bearer " + data.access_token,
-//   },
-// })
-//   .then((response) => response.json())
-//   .then((data) => {
-//     const playlist = data.items;
-//     console.log(playlist);
-//   });
-//
+  const clientID = "e7fc5b273d9b4aaea1f387e99ef23d1b";
+  const clientSecret = "b22ba202fa564908a0a1e50e928b6db2";
+
+  const authHeader = btoa(`${clientID}:${clientSecret}`);
+
+  const data = new URLSearchParams();
+  data.append("grant_type", "client_credentials");
+
+  // var access_token =
+  //   "BQAogx5eshE7bZxqsGoU08aTlnSi9Jyk8idM_5HSMI1YXodkDdz4t-Qx37jhXCo_V-66OGjyYkm-fu9zW2O-V-5GxgvtHGxIYS82wu7JGB-8mz3jOwIeZGZ6IGigdWL6c0fZQoMDbRuPJ-2m4dlfk4UQDoLFlruepQfPcHj34QrtPdBvFCcqKdDmzDhW";
+
+  fetch(endpoint, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${authHeader}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.access_token);
+      // Use the access token to fetch the list of available genres
+      const endpoint = "https://api.spotify.com/v1/browse/categories";
+
+      fetch(endpoint, {
+        headers: {
+          Authorization: "Bearer " + data.access_token,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const genres = data.categories.items;
+
+          //.map((category) => category.name)
+          // console.log(genres);
+
+          getGenres(genres);
+
+          var genreList = [
+            {
+              clearSkyDay: [
+                "summer",
+                "pop",
+                "dace/electronic",
+                "workout",
+                "regional mexican",
+              ],
+            },
+            {
+              rainnyDay: ["mood", "netflix", "idie", "sleep", "gaming"],
+            },
+            {
+              snow: ["top lists", "latin", "wellness", "equal", "chill"],
+            },
+            {
+              mist: ["rock", "country", "r&b", "Christian & Gospel", "hip-hop"],
+            },
+          ];
+
+          //loop through to pick a random genre, need to link with weather
+          /*   let pickedGenre = "";
+          for (let i = 0; i < genres.length; i++) {
+            const genre = genres[i].name;
+            console.log("Genre #" + (i + 1) + ": " + genre);
+          }
+
+          //creating p for genre
+          const pickedGenreElement = document.createElement("p");
+          pickedGenreElement.innerHTML = "Picked genre: " + pickedGenre;
+          document.body.appendChild(pickedGenreElement);
+          document.getElementById("spotifyPlaylist").append(pickedGenreElement);
+          */
+        })
+        .catch((error) => console.error(error));
+    })
+    .catch((error) => console.error(error));
+
+  // return(genreList);
+}
 
 
-//Kyle's code block
-            // if (genre === "Rock") {
-            //   pickedGenre = genre;
-            //   console.log("Picked genre: " + pickedGenre);
-            //   break;
-            // }
+
+// Display the playlist's icon.
+function getGenres(genres) {
+  console.log(genres);
+  console.log(genres[0].icons[0].url);
+
+  var img = genres[0].icons[0].url;
+  var name = genres[0].name;
+
+  var element = document.createElement("div");
+  element.innerHTML = `
+  <h5>${name}</h5>
+  <img src="${img}" alt="testing" />`;
+
+  document.getElementById("spotifyPlaylist").appendChild(element);
+}
+
