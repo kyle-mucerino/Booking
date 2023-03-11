@@ -1,5 +1,7 @@
 var genres = [];
 
+
+
 document.getElementById("searchBtn").addEventListener("click", function () {
   var cityName = document.getElementById("cityName").value;
 
@@ -81,13 +83,14 @@ function yourPlaylists(icon) {
 
   for (var i = 0; i < 4; i++) {
     if (clearSkyDay[i] === icon || clearSkyNight[i] === icon) {
+      
       console.log("confirm Clear Day");
     }
   }
 
   for (var i = 0; i < 3; i++) {
     if (rainyNight[i] === icon || rainyDay[i] === icon) {
-      console.log("confirm rainy night");
+      console.log("confirm rainy day or night");
     }
   }
 
@@ -182,6 +185,8 @@ function spotifyAPI() {
   // return(genreList);
 }
 
+
+
 // Display the playlist's icon.
 function getGenres() {
   console.log(genres);
@@ -209,6 +214,8 @@ function getGenres() {
 
     document.getElementById("spotifyPlaylist").append(element);
   }
+
+ 
 }
 
 //Store the fav playlists in the localStorage
@@ -223,3 +230,4 @@ document.addEventListener("click", function (event) {
     event.target.textContent = "Favorited";
   }
 });
+
