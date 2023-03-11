@@ -80,18 +80,14 @@ function yourPlaylists(icon) {
   var mist = ["50d", "50n"];
 
   for (var i = 0; i < 4; i++) {
-    if (clearSkyDay[i] === icon) {
+    if (clearSkyDay[i] === icon || clearSkyNight[i] === icon) {
       console.log("confirm Clear Day");
-    } else if (clearSkyNight[i] === icon) {
-      console.log("Confirm Clear Night ");
     }
   }
 
   for (var i = 0; i < 3; i++) {
-    if (rainyNight[i] === icon) {
-      console.log("confirm rainy night");
-    } else if (rainyDay[i] === icon) {
-      console.log("Confirm rainy day");
+    if (rainyNight[i] === icon || rainyDay[i] === icon) {
+      console.log("confirm rainy day or night");
     }
   }
 
@@ -194,12 +190,12 @@ function getGenres() {
   document.getElementById("spotifyPlaylist").innerHTML = " ";
 
   // Display all playlist
-  for (var i = 0; i < genres.length; i+=4) {
+  for (var i = 0; i < genres.length; i += 4) {
     var img = genres[i].icons[0].url;
     var name = genres[i].name;
     // created div with playlist's icon and a favorite button.
     var element = document.createElement("div");
-    element.className = "cardMusic"
+    element.className = "cardMusic";
     element.innerHTML = `
                 <h5>${name}</h5>
                 <img src="${img}" alt="testing" />
@@ -226,7 +222,6 @@ document.addEventListener("click", function (event) {
     event.target.classList.remove("is-primary");
     event.target.classList.add("is-info");
     event.target.textContent = "Favorited";
-    
     event.target.disabled = true;
   }
 });
