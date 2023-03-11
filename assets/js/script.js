@@ -80,18 +80,14 @@ function yourPlaylists(icon) {
   var mist = ["50d", "50n"];
 
   for (var i = 0; i < 4; i++) {
-    if (clearSkyDay[i] === icon) {
+    if (clearSkyDay[i] === icon || clearSkyNight[i] === icon) {
       console.log("confirm Clear Day");
-    } else if (clearSkyNight[i] === icon) {
-      console.log("Confirm Clear Night ");
     }
   }
 
   for (var i = 0; i < 3; i++) {
-    if (rainyNight[i] === icon) {
+    if (rainyNight[i] === icon || rainyDay[i] === icon) {
       console.log("confirm rainy night");
-    } else if (rainyDay[i] === icon) {
-      console.log("Confirm rainy day");
     }
   }
 
