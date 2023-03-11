@@ -123,7 +123,6 @@ function spotifyAPI() {
 
   const data = new URLSearchParams();
   data.append("grant_type", "client_credentials");
-  
 
   fetch(endpoint, {
     method: "POST",
@@ -195,8 +194,6 @@ function spotifyAPI() {
   // return(genreList);
 }
 
-
-
 // Display the playlist's icon.
 function getGenres(genres) {
   console.log(genres);
@@ -205,11 +202,20 @@ function getGenres(genres) {
   var img = genres[0].icons[0].url;
   var name = genres[0].name;
 
+  //clear the previous suggested playlists
+  document.getElementById("spotifyPlaylist").innerHTML = " ";
+
+  // created div with playlist's icon and a favorite button.
   var element = document.createElement("div");
   element.innerHTML = `
   <h5>${name}</h5>
-  <img src="${img}" alt="testing" />`;
+  <img src="${img}" alt="testing" />
+  <a href="#" class="button 
+  is-primary 
+  is-light 
+  is-primary 
+  is-hovered 
+  is-rounded " >Favorite</a>`;
 
   document.getElementById("spotifyPlaylist").appendChild(element);
 }
-
