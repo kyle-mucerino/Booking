@@ -1,7 +1,5 @@
 var genres = [];
 
-
-
 document.getElementById("searchBtn").addEventListener("click", function () {
   var cityName = document.getElementById("cityName").value;
 
@@ -83,7 +81,6 @@ function yourPlaylists(icon) {
 
   for (var i = 0; i < 4; i++) {
     if (clearSkyDay[i] === icon || clearSkyNight[i] === icon) {
-      
       console.log("confirm Clear Day");
     }
   }
@@ -185,8 +182,6 @@ function spotifyAPI() {
   // return(genreList);
 }
 
-
-
 // Display the playlist's icon.
 function getGenres() {
   console.log(genres);
@@ -195,12 +190,12 @@ function getGenres() {
   document.getElementById("spotifyPlaylist").innerHTML = " ";
 
   // Display all playlist
-  for (var i = 0; i < genres.length; i+=4) {
+  for (var i = 0; i < genres.length; i += 4) {
     var img = genres[i].icons[0].url;
     var name = genres[i].name;
     // created div with playlist's icon and a favorite button.
     var element = document.createElement("div");
-    element.className = "cardMusic"
+    element.className = "cardMusic";
     element.innerHTML = `
                 <h5>${name}</h5>
                 <img src="${img}" alt="testing" />
@@ -215,8 +210,6 @@ function getGenres() {
 
     document.getElementById("spotifyPlaylist").append(element);
   }
-
- 
 }
 
 //Store the fav playlists in the localStorage
@@ -229,8 +222,6 @@ document.addEventListener("click", function (event) {
     event.target.classList.remove("is-primary");
     event.target.classList.add("is-info");
     event.target.textContent = "Favorited";
-    
     event.target.disabled = true;
   }
 });
-
