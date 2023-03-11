@@ -8,6 +8,7 @@ function renderGenres() {
     var name = genres[i].name;
     // created div with playlist's icon and a favorite button.
     var element = document.createElement("div");
+    element.className = "cardMusic"
     element.innerHTML = `
                 <h5>${name}</h5>
                 <img src="${img}" alt="testing" />
