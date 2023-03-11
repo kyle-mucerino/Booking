@@ -81,33 +81,24 @@ function yourPlaylists(icon) {
 
   for (var i = 0; i < 4; i++) {
     if (clearSkyDay[i] === icon) {
-      // var suggestionLists = genreList[0];
       console.log("confirm Clear Day");
     } else if (clearSkyNight[i] === icon) {
-      // var suggestionLists = genreList[0];
       console.log("Confirm Clear Night ");
     }
   }
 
   for (var i = 0; i < 3; i++) {
     if (rainyNight[i] === icon) {
-      // var suggestionLists = genreList[0];
       console.log("confirm rainy night");
     } else if (rainyDay[i] === icon) {
-      // var suggestionLists = genreList[1];
-      // console.log(suggestionLists);
       console.log("Confirm rainy day");
     }
   }
 
   for (var i = 0; i < 2; i++) {
     if (snow[i] === icon) {
-      // var suggestionLists = genreList[0];
       console.log("confirm snowy");
     } else if (mist[i] === icon) {
-      // var suggestionLists = genreList[1];
-      // console.log(suggestionLists);
-      console.log(genres);
       console.log("Confirm mist day");
     }
   }
