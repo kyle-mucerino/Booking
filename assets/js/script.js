@@ -1,4 +1,4 @@
-// console.log(genreList[0]);
+var genres = [];
 
 document.getElementById("searchBtn").addEventListener("click", function () {
   var cityName = document.getElementById("cityName").value;
@@ -107,6 +107,7 @@ function yourPlaylists(icon) {
     } else if (mist[i] === icon) {
       // var suggestionLists = genreList[1];
       // console.log(suggestionLists);
+      console.log(genres);
       console.log("Confirm mist day");
     }
   }
@@ -145,12 +146,12 @@ function spotifyAPI() {
       })
         .then((response) => response.json())
         .then((data) => {
-          const genres = data.categories.items;
+          genres = data.categories.items;
 
           //.map((category) => category.name)
           // console.log(genres);
 
-          getGenres(genres);
+          getGenres();
 
           var genreList = [
             {
@@ -195,27 +196,43 @@ function spotifyAPI() {
 }
 
 // Display the playlist's icon.
-function getGenres(genres) {
+function getGenres() {
   console.log(genres);
-  console.log(genres[0].icons[0].url);
-
-  var img = genres[0].icons[0].url;
-  var name = genres[0].name;
 
   //clear the previous suggested playlists
   document.getElementById("spotifyPlaylist").innerHTML = " ";
 
-  // created div with playlist's icon and a favorite button.
-  var element = document.createElement("div");
-  element.innerHTML = `
-  <h5>${name}</h5>
-  <img src="${img}" alt="testing" />
-  <a href="#" class="button 
-  is-primary 
-  is-light 
-  is-primary 
-  is-hovered 
-  is-rounded " >Favorite</a>`;
+  // Display all playlist
+  for (var i = 0; i < genres.length; i++) {
+    var img = genres[i].icons[0].url;
+    var name = genres[i].name;
+    // created div with playlist's icon and a favorite button.
+    var element = document.createElement("div");
+    element.innerHTML = `
+                <h5>${name}</h5>
+                <img src="${img}" alt="testing" />
+                <button data-index=${i}
+                        class="button 
+                        playlistFav
+                        is-primary 
+                        is-light 
+                        is-primary 
+                        is-hovered 
+                        is-rounded " >Favorite</button>`;
 
-  document.getElementById("spotifyPlaylist").appendChild(element);
+    document.getElementById("spotifyPlaylist").append(element);
+  }
 }
+
+//Store the fav playlists in the localStorage
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("playlistFav")) {
+    var index = parseInt(event.target.dataset.index);
+    var favorties = JSON.parse(localStorage.getItem("playlistFav")) || [];
+    favorties.push(genres[index]);
+    localStorage.setItem("playlistFav", JSON.stringify(favorties));
+    event.target.classList.remove("is-primary");
+    event.target.classList.add("is-info");
+    event.target.textContent = "Favorited";
+  }
+});
