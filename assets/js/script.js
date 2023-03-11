@@ -123,9 +123,7 @@ function spotifyAPI() {
 
   const data = new URLSearchParams();
   data.append("grant_type", "client_credentials");
-
-  // var access_token =
-  //   "BQAogx5eshE7bZxqsGoU08aTlnSi9Jyk8idM_5HSMI1YXodkDdz4t-Qx37jhXCo_V-66OGjyYkm-fu9zW2O-V-5GxgvtHGxIYS82wu7JGB-8mz3jOwIeZGZ6IGigdWL6c0fZQoMDbRuPJ-2m4dlfk4UQDoLFlruepQfPcHj34QrtPdBvFCcqKdDmzDhW";
+  
 
   fetch(endpoint, {
     method: "POST",
