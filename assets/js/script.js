@@ -81,32 +81,30 @@ function yourPlaylists(icon) {
 
   for (var i = 0; i < 4; i++) {
     if (clearSkyDay[i] === icon) {
-      // var suggestionLists = genreList[0];
+      
       console.log("confirm Clear Day");
     } else if (clearSkyNight[i] === icon) {
-      // var suggestionLists = genreList[0];
+      
       console.log("Confirm Clear Night ");
     }
   }
 
   for (var i = 0; i < 3; i++) {
     if (rainyNight[i] === icon) {
-      // var suggestionLists = genreList[0];
+     
       console.log("confirm rainy night");
     } else if (rainyDay[i] === icon) {
-      // var suggestionLists = genreList[1];
-      // console.log(suggestionLists);
+     
       console.log("Confirm rainy day");
     }
   }
 
   for (var i = 0; i < 2; i++) {
     if (snow[i] === icon) {
-      // var suggestionLists = genreList[0];
+      
       console.log("confirm snowy");
     } else if (mist[i] === icon) {
-      // var suggestionLists = genreList[1];
-      // console.log(suggestionLists);
+      
       console.log(genres);
       console.log("Confirm mist day");
     }
@@ -153,27 +151,6 @@ function spotifyAPI() {
 
           getGenres();
 
-          var genreList = [
-            {
-              clearSkyDay: [
-                "summer",
-                "pop",
-                "dace/electronic",
-                "workout",
-                "regional mexican",
-              ],
-            },
-            {
-              rainnyDay: ["mood", "netflix", "idie", "sleep", "gaming"],
-            },
-            {
-              snow: ["top lists", "latin", "wellness", "equal", "chill"],
-            },
-            {
-              mist: ["rock", "country", "r&b", "Christian & Gospel", "hip-hop"],
-            },
-          ];
-
           //loop through to pick a random genre, need to link with weather
           /*   let pickedGenre = "";
           for (let i = 0; i < genres.length; i++) {
@@ -192,7 +169,7 @@ function spotifyAPI() {
     })
     .catch((error) => console.error(error));
 
-  // return(genreList);
+  
 }
 
 // Display the playlist's icon.
@@ -204,11 +181,15 @@ function getGenres() {
 
   // Display all playlist
   for (var i = 0; i < genres.length; i+=4) {
-    var img = genres[i].icons[0].url;
-    var name = genres[i].name;
+    // get random number
+    var randIndex = Math.floor(Math.random() * genres.length);
+
+    var img = genres[randIndex].icons[0].url;
+    var name = genres[randIndex].name;
+
     // created div with playlist's icon and a favorite button.
     var element = document.createElement("div");
-    element.className = "cardMusic"
+    element.className = "cardMusic";
     element.innerHTML = `
                 <h5>${name}</h5>
                 <img src="${img}" alt="testing" />
