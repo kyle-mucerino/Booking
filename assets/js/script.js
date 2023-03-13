@@ -180,7 +180,7 @@ function spotifyAPI() {
     .catch((error) => console.error(error));
 
   // return(genreList);
-};
+}
 
 // Display the playlist's icon.
 function getGenres() {
@@ -190,9 +190,13 @@ function getGenres() {
   document.getElementById("spotifyPlaylist").innerHTML = " ";
 
   // Display all playlist
-  for (var i = 0; i < genres.length; i += 4) {
-    var img = genres[i].icons[0].url;
-    var name = genres[i].name;
+
+  for (var i = 0; i < genres.length; i+=4) {
+    // get random number
+    var randIndex = Math.floor(Math.random() * genres.length);
+
+    var img = genres[randIndex].icons[0].url;
+    var name = genres[randIndex].name;
     // created div with playlist's icon and a favorite button.
     var element = document.createElement("div");
     element.className = "cardMusic";
@@ -210,7 +214,7 @@ function getGenres() {
 
     document.getElementById("spotifyPlaylist").append(element);
   }
-};
+}
 
 //Store the fav playlists in the localStorage
 document.addEventListener("click", function (event) {
