@@ -136,7 +136,7 @@ function spotifyAPI() {
           genres = data.categories.items;
 
           //.map((category) => category.name)
-          // console.log(genres);
+          console.log(genres);
 
           getGenres();
 
@@ -180,7 +180,7 @@ function spotifyAPI() {
     .catch((error) => console.error(error));
 
   // return(genreList);
-}
+};
 
 // Display the playlist's icon.
 function getGenres() {
@@ -210,7 +210,7 @@ function getGenres() {
 
     document.getElementById("spotifyPlaylist").append(element);
   }
-}
+};
 
 //Store the fav playlists in the localStorage
 document.addEventListener("click", function (event) {
