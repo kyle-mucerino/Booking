@@ -186,7 +186,7 @@ function getGenres() {
     element.innerHTML = `
                 <h5>${name}</h5>
                 <img src="${img}" alt="testing" />
-                <button data-index=${i}
+                <button data-index=${randIndex}
                         class="button 
                         playlistFav
                         is-primary 
