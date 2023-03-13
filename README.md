@@ -1,19 +1,25 @@
-# Booking
+# Music Forecast
 
 ## USER STORY
 AS A traveler 
-I WANT to see multiple flight and hotel options
-SO THAT I can book a trip accordingly
+I WANT to see current weather and music playlists
+SO THAT I can find a playlist based on the weather
 
 ## ACCEPTANCE CRITERIA
-// GIVEN a booking dashboard with select inputs
+// GIVEN a search dashboard with input and search button
 // WHEN I search for a city
-// THEN I am presented with flight details 
-// WHEN I view flight details
-// THEN I am presented with the city name, the departure and return date, and prices
-// WHEN I view the selected flight 
-// THEN I am presented with a list of hotel options
-// WHEN I click on a hotel
-// THEN I am presented with booking options, and pricing
-//WHEN I click favorite button
-//THEN I am directed to favorites page with lists of favorited flights and hotels
+// THEN I am presented with current weather details 
+// WHEN I view weather details
+// THEN I am presented with the city name, date, time, icon, and temperature
+// WHEN I view the current weather 
+// THEN I am presented with a list of genres
+// WHEN I click on a genre
+// THEN I am presented with playlists
+// WHEN I click favorite link
+// THEN I am directed to favorites page with lists of favorited genres 
+
+## IMAGES
+
+1. Clear image of start page
+2. Image when you type in city and current weather details 
+3. Image of Favorited Playlist page
