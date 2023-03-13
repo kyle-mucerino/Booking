@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Music Choice</title>
+  <title>Music Forecast</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -18,15 +18,9 @@
 <body>
   <header>
     <section id="title" class="banner title is-1">
-      <h1>Weather Music Choice</h1>
+      <h1>Music Forecast</h1>
     </section>
-    <!-- <div class="container">
-      <a class="navbar-item">
-        Home
-      </a>
-      <a class="navbar-item" href="favorites.html">
-        Favorites
-      </a> -->
+    
     <div class="tabs is-centered">
       <ul>
         <li class="is-active"><a href="#">Home</a></li>
@@ -35,125 +29,73 @@
     </div>
   </header>
 
-
-
   <main>
     <div class="container">
 
       <div class="searchCity mb-4">
-        <header class="card-header">
+        <h2 class="card-header">
           <p class="card-header-title">
             Search City
           </p>
-          <!-- <button class="card-header-icon" aria-label="more options"> -->
-            <!-- <span class="icon">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span> -->
-          <!-- </button> -->
-        </header>
+          
+        </h2>
         <div class="card-content">
           <div class="content">
             <section id="date">
               <div class="citySearch">
                 <div class="field">
-                  <!-- <label class="label">From</label> -->
+                 
                   <div class="control">
                     <input id="cityName" class="input is-normal" type="text" placeholder="Enter City" />
                   </div>
                 </div>
 
-                <!-- <div class="field">
-                  <label class="label">To</label>
-                  <div class="control">
-                    <input id="to" class="input is-small" type="text" placeholder="Enter your name" />
-                  </div>
-                </div>
-              </div> -->
-
-                <!-- <input type="date" id="start" name="starting-trip" min="2023-8-3" max="">
-              <input type="date" id="start" name="starting-trip" min="2023-8-3" max=""> -->
                 <button id="searchBtn" class="button is-primary">Search</button>
             </section>
           </div>
         </div>
       </div>
 
-
-
-
-
       <div class="hide" id="weatherDetails mb-6">
         <div class="card">
-          <header class="card-header">
+          <h3 class="card-header">
             <p class="card-header-title">
               Current Weather
             </p>
-            <!-- <button class="card-header-icon" aria-label="more options">
-              <span class="icon">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </button> -->
-          </header>
+            
+          </h3>
           <div id="weatherCard" class="card-content">
           </div>
-          <!-- <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-
-              <br>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div> -->
+          
         </div>
-        <!-- <footer class="card-footer"> 
-          <button type="submit" class="button card-footer-item">Favorite</button>
-          <button type="submit" class="button card-footer-item">Book</button> 
-         </footer>  -->
+        
       </div>
-
-
-
-
-
 
       <div class="playlistInfo hide">
         <div class="card">
-          <header class="card-header">
+          <h4 class="card-header">
             <p class="card-header-title">
               Your Spotify Playlist
             </p>
-            <!-- <button class="card-header-icon" aria-label="more options">
-              <span class="icon">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </button> -->
-          </header>
+            
+          </h4>
           <div class="card-content">
             <div id = "spotifyPlaylist" class="content">
-            
-              
-<!--               
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-
-              <br>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> -->
             </div>
           </div>
-        </div>
-        <!-- <footer class="card-footer">
-          <button type="submit" class="button card-footer-item">Favorite</button>
-          <button type="submit" class="button card-footer-item">Book</button>
-        </footer> -->
+        </div>    
       </div>
-
-
-
     </div>
 
-
-
-
-
-
   </main>
+
+  <footer>
+    
+    <h5>
+      Music Forecast Comp.
+    </h5>
+
+  </footer>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>   
   <script src="./assets/js/script.js"></script>
 </body>
