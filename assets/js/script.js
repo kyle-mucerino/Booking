@@ -80,23 +80,15 @@ function yourPlaylists(icon) {
   var mist = ["50d", "50n"];
 
   for (var i = 0; i < 4; i++) {
-    if (clearSkyDay[i] === icon) {
-      
-      console.log("confirm Clear Day");
-    } else if (clearSkyNight[i] === icon) {
-      // var suggestionLists = genreList[0];
-      console.log("Confirm Clear Night ");
+    if (clearSkyDay[i] === icon || clearSkyNight[i] === icon) {
+      console.log("confirm Clear Day or Night");
     }
   }
 
   for (var i = 0; i < 3; i++) {
-    if (rainyNight[i] === icon) {
+    if (rainyNight[i] === icon || rainyDay[i] === icon) {
       // var suggestionLists = genreList[0];
-      console.log("confirm rainy night");
-    } else if (rainyDay[i] === icon) {
-      // var suggestionLists = genreList[1];
-      // console.log(suggestionLists);
-      console.log("Confirm rainy day");
+      console.log("confirm rainy night or day");
     }
   }
 
@@ -170,8 +162,6 @@ function spotifyAPI() {
         .catch((error) => console.error(error));
     })
     .catch((error) => console.error(error));
-
-  
 }
 
 // Display the playlist's icon.
@@ -183,10 +173,13 @@ function getGenres() {
 
   // Display all playlist
 
-  
-  for (var i = 0; i < genres.length; i+=4) {
-    var img = genres[i].icons[0].url;
-    var name = genres[i].name;
+  for (var i = 0; i < genres.length; i += 4) {
+    // get random number
+    var randIndex = Math.floor(Math.random() * genres.length);
+
+    var img = genres[randIndex].icons[0].url;
+    var name = genres[randIndex].name;
+
     // created div with playlist's icon and a favorite button.
     var element = document.createElement("div");
     element.className = "cardMusic";
