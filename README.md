@@ -21,5 +21,13 @@ SO THAT I can find a playlist based on the weather
 ## IMAGES
 
 1. Clear image of start page
+  [alt text](./assets/images/Screenshot%202023-03-13%20at%2011-35-16%20Music%20Forecast.png)
 2. Image when you type in city and current weather details 
+  [alt text](./assets/images/Screenshot%202023-03-13%20at%2011-38-02%20Music%20Forecast.png)
 3. Image of Favorited Playlist page
+  [alt text](./assets/images/Screenshot%202023-03-13%20at%2011-38-29%20Favorites%20Genre.png)
+  removed from favorites
+  [alt text](./assets/images/Screenshot%202023-03-13%20at%2011-38-41%20Favorites%20Genre.png)
+
+Link to deployed page
+https://kyle-mucerino.github.io/Booking/ 
