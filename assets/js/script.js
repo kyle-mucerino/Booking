@@ -191,9 +191,12 @@ function getGenres() {
 
   // Display all playlist
 
+  
   for (var i = 0; i < genres.length; i+=4) {
     // get random number
     var randIndex = Math.floor(Math.random() * genres.length);
+
+    console.log(randIndex);
 
     var img = genres[randIndex].icons[0].url;
     var name = genres[randIndex].name;
