@@ -30,4 +30,4 @@ SO THAT I can find a playlist based on the weather
   [alt text](./assets/images/Screenshot%202023-03-13%20at%2011-38-41%20Favorites%20Genre.png)
 
 Link to deployed page
-https://kyle-mucerino.github.io/Booking/ 
+(https://kyle-mucerino.github.io/Music-Forecast/)
